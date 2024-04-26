@@ -1,0 +1,68 @@
+{
+    "startLine": "8",
+    "separator": ";",
+    "path": "/Users/angelo/Documents/Projetos/agronomia/files/Postos_Selecionados",
+    "columns": [
+        {
+            "column": "DATA (YYYY-MM-DD)",
+            "identifier": true,
+            "format": "YYYY-MM-DD"
+        },
+        {
+            "column": "PRECIPITA��O TOTAL, HOR�RIO (mm)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "TEMPERATURA DO AR - BULBO SECO, HORARIA (�C)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "TEMPERATURA DO PONTO DE ORVALHO (�C)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "TEMPERATURA M�XIMA NA HORA ANT. (AUT) (�C)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "TEMPERATURA M�NIMA NA HORA ANT. (AUT) (�C)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "TEMPERATURA ORVALHO MAX. NA HORA ANT. (AUT) (�C)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "TEMPERATURA ORVALHO MIN. NA HORA ANT. (AUT) (�C)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "UMIDADE REL. MAX. NA HORA ANT. (AUT) (%)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "UMIDADE REL. MIN. NA HORA ANT. (AUT) (%)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "UMIDADE RELATIVA DO AR, HORARIA (%)",
+            "metric": "medium",
+            "minimum": 0
+        },
+        {
+            "column": "VENTO, VELOCIDADE HORARIA (m/s)",
+            "metric": "medium",
+            "minimum": 0
+        }
+    ]
+}
+
