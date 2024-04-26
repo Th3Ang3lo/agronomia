@@ -1,7 +1,7 @@
 {
     "startLine": "8",
     "separator": ";",
-    "path": "/Users/angelo/Documents/Projetos/agronomia/files/Postos_Selecionados",
+    "path": "/Users/angelosoares/Documents/Projetos/agronomia/files/Postos_Selecionados",
     "columns": [
         {
             "column": "DATA (YYYY-MM-DD)",

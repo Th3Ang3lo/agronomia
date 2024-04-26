@@ -1,3 +1,5 @@
+import StringHelper from "./string-helper.js";
+
 export default class ObjectHelper {
     static mergeObjects(obj1, obj2) {
         const merged = { ...obj1 };
@@ -28,6 +30,14 @@ export default class ObjectHelper {
                 }
             }
         }
+        return obj;
+    }
+
+    static convertStringToNumbers(obj) {
+        for (const [column, value] of Object.entries(obj)) {
+            obj[column] = StringHelper.tryParseStringToNumber(value);
+        }
+
         return obj;
     }
 }

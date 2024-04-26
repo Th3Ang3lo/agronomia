@@ -40,6 +40,12 @@ export default class Config {
         return columns.find(column => column?.identifier);
     }
 
+    static getOperator(column) {
+        const findColumnConfig = this.getColumns().find(columnConfig => columnConfig.column == column);
+
+        return findColumnConfig?.metric;
+    }
+
     static getPath() {
         const path = config?.path;
 

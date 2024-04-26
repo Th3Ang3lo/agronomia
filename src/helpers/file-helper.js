@@ -1,5 +1,5 @@
 import { readdirSync, statSync } from 'node:fs';
-import { dirname, extname, join, resolve } from 'node:path';
+import { basename, dirname, extname, join, resolve } from 'node:path';
 import Config from '../config.js';
 
 export default class FileHelper {
@@ -17,10 +17,12 @@ export default class FileHelper {
             } else {
                 if (extname(itemPath).toLowerCase() === '.csv') {
                     const outputPath = join(Config.getPath(), "output", itemPath.replace(dirname(directory), ""));
+                    const outputDir = dirname(outputPath);
 
                     csvFiles.push({
                         path: itemPath,
-                        output: outputPath
+                        output: outputPath,
+                        outputDir
                     });
                 }
             }
