@@ -3,7 +3,7 @@ import { csvConcurrentReader } from "csv-concurrent-reader";
 
 import Config from "./config.js";
 import ObjectHelper from "./helpers/object-helper.js";
-import { error } from 'node:console';
+import { basename } from 'node:path';
 
 export class Writer {
     static async execute(files) {
@@ -15,8 +15,14 @@ export class Writer {
             const metrics = {};
             const totals = {};
 
+            let continueCurrentLoop = false;
+
             await csvConcurrentReader(file.path, function(data) {
                 const identifierValue = data?.[identifier.column];
+
+                if (!identifierValue) {
+                    continueCurrentLoop = true;
+                }
 
                 data = ObjectHelper.convertStringToNumbers(data);
 
@@ -42,6 +48,11 @@ export class Writer {
                 skipLines: Config.getStartLine()
             });
 
+            if(continueCurrentLoop) {
+                console.log(`Não pode calcular ${basename(file.path)}. Identificador inexistente (${identifier.column}).`);
+                continue;
+            }
+
             for (const key in metrics) {
                 for (const [column, value] of Object.entries(metrics[key])) {
                     if(typeof value == 'number' && value > 0) {
@@ -56,22 +67,30 @@ export class Writer {
                 fs.mkdirSync(file.outputDir, { recursive: true });
             }
 
-            const header = columns.map(column => column.column).join(separator);
-            // console.log(header);
-
-            for (const [column, value] in Object.entries(metrics)) {
-                // const dataToWrite = 
-                console.log({ column, value });
-            }
-
-            /*
-            
             const fileWriteStream = fs.createWriteStream(file.output);
-            fileWriteStream.write("test\n");
 
+            console.log(`Processando: ${basename(file.output)}`);
+
+            const headerLine = columns.map(column => column.column).join(separator);
+            fileWriteStream.write(headerLine + '\n');
+
+            for (let data of Object.values(metrics)) {
+                const identifierValue = data?.[identifier.column];
+
+                const dataLine = columns.map(column => data[column.column]).join(separator);
+
+                if(!identifierValue) {
+                    continue;
+                }
+
+                fileWriteStream.write(dataLine + '\n');
+            }
+            
             fileWriteStream.end();
 
-            */
+            console.log(`Finalizado: ${basename(file.output)}`);
         }
+
+        console.log("Todos os processos foram finalizados.");
     }
 }

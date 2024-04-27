@@ -1,4 +1,3 @@
-import { csvConcurrentReader } from 'csv-concurrent-reader';
 import Config from './config.js';
 import FileHelper from './helpers/file-helper.js';
 import { Writer } from './writer.js';

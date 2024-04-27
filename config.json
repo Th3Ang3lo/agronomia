@@ -1,10 +1,10 @@
 {
     "startLine": "8",
     "separator": ";",
-    "path": "/Users/angelosoares/Documents/Projetos/agronomia/files/Postos_Selecionados",
+    "path": "{current}/files/Postos_Selecionados",
     "columns": [
         {
-            "column": "DATA (YYYY-MM-DD)",
+            "column": "Data",
             "identifier": true,
             "format": "YYYY-MM-DD"
         },
