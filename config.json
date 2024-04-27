@@ -4,7 +4,7 @@
     "path": "{current}/files/Postos_Selecionados",
     "columns": [
         {
-            "column": "Data",
+            "column": "DATA (YYYY-MM-DD)",
             "identifier": true,
             "format": "YYYY-MM-DD"
         },
