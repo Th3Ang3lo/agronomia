@@ -27,6 +27,10 @@ export class Writer {
                 data = ObjectHelper.convertStringToNumbers(data);
 
                 for (const [column, value] of Object.entries(data)) {
+                    if(value < 0) {
+                        continue;
+                    }
+
                     if(!metrics?.[identifierValue]) {
                         metrics[identifierValue] = {};
                         totals[identifierValue] = {};

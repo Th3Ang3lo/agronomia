@@ -23,6 +23,7 @@ export default class ObjectHelper {
             if (obj.hasOwnProperty(key) && typeof obj[key] === 'string') {
                 // Replace commas with dots and convert to number
                 var numericValue = parseFloat(obj[key].replace(',', '.'));
+
                 // Check if the conversion was successful
                 if (!isNaN(numericValue)) {
                     // Update the value in the object
